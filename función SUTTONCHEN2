@@ -1,0 +1,22 @@
+void SuttonChen(int a, int n, int m, float eps, float c)
+{
+    float r, U1, U2, Utot, rho1, rho2, V12, V21;
+    
+    for(r = 0.05; r < 5; r += 0.05)
+    {
+        V12 = pow(a / r, n);
+        V21 = pow(a / r, n);
+
+        rho1 = pow(a / r, m);
+        rho2 = pow(a / r, m); 
+        
+        U1 = eps * (0.5 * V12 - c * sqrt(rho1));
+        U2 = eps * (0.5 * V21 - c * sqrt(rho2));
+        
+
+        Utot = U1 + U2;
+        
+
+        printf("%f, %f\n", r, Utot);
+    }
+}
